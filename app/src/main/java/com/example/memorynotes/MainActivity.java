@@ -206,8 +206,7 @@ public class MainActivity extends AppCompatActivity {
             if (cursor != null) {
                 int idIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID);
                 int noteTextIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_NOTE_TEXT);
-
-                // Ensure the columns exist
+                
                 if (idIndex >= 0 && noteTextIndex >= 0) {
                     while (cursor.moveToNext()) {
                         int id = cursor.getInt(idIndex);
@@ -215,7 +214,6 @@ public class MainActivity extends AppCompatActivity {
                         notes.add(new Note(id, noteText));
                     }
                 } else {
-                    // Handle the case where the columns do not exist
                     throw new IllegalStateException("Database columns not found");
                 }
 
